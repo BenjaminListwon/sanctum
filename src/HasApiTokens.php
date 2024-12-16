@@ -84,7 +84,7 @@ trait HasApiTokens
         return sprintf(
             '%s%s%s',
             config('sanctum.token_prefix', ''),
-            $tokenEntropy = Str::random(40) . $tokenSalt, // BL: Append the salt here
+            $tokenEntropy = Str::random(40) . $salt, // BL: Append the salt here
             hash('crc32b', $tokenEntropy)
         );
     }
