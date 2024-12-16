@@ -79,7 +79,7 @@ trait HasApiTokens
     public function generateTokenString()
     {
         // BL: Adding a "salt" that can be stored on the user model
-        $salt = $this->tokenSalt ? $this->tokenSalt : '';
+        $salt = $this->token_salt ? $this->token_salt : '';
 
         return sprintf(
             '%s%s%s',
