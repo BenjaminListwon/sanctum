@@ -24,7 +24,8 @@ return new class extends Migration
     {
         Schema::table('personal_access_tokens', function (Blueprint $table) {
             $table->dropColumn('device');
-            $table->string('token', 64)->change();
+            $table->dropColumn('token');
+            $table->string('token', 64)->unique()->after('name');
         });
     }
 };
