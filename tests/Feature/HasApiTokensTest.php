@@ -25,7 +25,7 @@ class HasApiTokensTest extends TestCase
 
         $this->assertEquals(
             $newToken->accessToken->token,
-            hash('sha256', $token)
+            hash('sha512', $token)
         );
 
         $this->assertEquals(

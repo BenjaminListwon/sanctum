@@ -63,7 +63,7 @@ trait HasApiTokens
 
         $token = $this->tokens()->create([
             'name' => $name,
-            'token' => hash('sha256', $plainTextToken),
+            'token' => hash('sha512', $plainTextToken), // BL: Up this to 512
             'abilities' => $abilities,
             'expires_at' => $expiresAt,
         ]);
@@ -78,10 +78,13 @@ trait HasApiTokens
      */
     public function generateTokenString()
     {
+        // BL: Adding a "salt" that can be stored on the user model
+        $salt = $this->tokenSalt ? $this->tokenSalt : '';
+
         return sprintf(
             '%s%s%s',
             config('sanctum.token_prefix', ''),
-            $tokenEntropy = Str::random(40),
+            $tokenEntropy = Str::random(40) . $tokenSalt, // BL: Append the salt here
             hash('crc32b', $tokenEntropy)
         );
     }

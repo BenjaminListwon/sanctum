@@ -29,7 +29,7 @@ class PersonalAccessTokenFactory extends Factory
     {
         return [
             'name' => fake()->company(),
-            'token' => hash('sha256', 'test'),
+            'token' => hash('sha512', 'test'),
             'created_at' => Carbon::now(),
             'expires_at' => null,
         ];

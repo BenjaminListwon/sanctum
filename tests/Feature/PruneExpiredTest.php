@@ -27,7 +27,7 @@ class PruneExpiredTest extends TestCase
             $user, 'tokenable'
         )->create([
             'name' => 'Test_1',
-            'token' => hash('sha256', 'test_1'),
+            'token' => hash('sha512', 'test_1'),
             'created_at' => now()->subMinutes(181),
         ]);
 
@@ -35,7 +35,7 @@ class PruneExpiredTest extends TestCase
             $user, 'tokenable'
         )->create([
             'name' => 'Test_2',
-            'token' => hash('sha256', 'test_2'),
+            'token' => hash('sha512', 'test_2'),
             'created_at' => now()->subMinutes(179),
         ]);
 
@@ -43,7 +43,7 @@ class PruneExpiredTest extends TestCase
             $user, 'tokenable'
         )->create([
             'name' => 'Test_3',
-            'token' => hash('sha256', 'test_3'),
+            'token' => hash('sha512', 'test_3'),
             'created_at' => now()->subMinutes(121),
         ]);
 
@@ -63,7 +63,7 @@ class PruneExpiredTest extends TestCase
             UserFactory::new(), 'tokenable'
         )->create([
             'name' => 'Test',
-            'token' => hash('sha256', 'test'),
+            'token' => hash('sha512', 'test'),
             'created_at' => now()->subMinutes(70),
         ]);
 
@@ -83,7 +83,7 @@ class PruneExpiredTest extends TestCase
             $user, 'tokenable'
         )->create([
             'name' => 'Test_1',
-            'token' => hash('sha256', 'test_1'),
+            'token' => hash('sha512', 'test_1'),
             'expires_at' => now()->subMinutes(121),
         ]);
 
@@ -91,7 +91,7 @@ class PruneExpiredTest extends TestCase
             $user, 'tokenable'
         )->create([
             'name' => 'Test_2',
-            'token' => hash('sha256', 'test_2'),
+            'token' => hash('sha512', 'test_2'),
             'expires_at' => now()->subMinutes(119),
         ]);
 
@@ -99,7 +99,7 @@ class PruneExpiredTest extends TestCase
             $user, 'tokenable'
         )->create([
             'name' => 'Test_3',
-            'token' => hash('sha256', 'test_3'),
+            'token' => hash('sha512', 'test_3'),
             'expires_at' => null,
         ]);
 
